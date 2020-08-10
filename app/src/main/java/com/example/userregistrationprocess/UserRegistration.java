@@ -16,6 +16,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserRegistration extends AppCompatActivity {
 
@@ -48,7 +53,7 @@ public class UserRegistration extends AppCompatActivity {
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mEmail.getText().toString().trim();
+                final String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)){
@@ -71,7 +76,10 @@ public class UserRegistration extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(UserRegistration.this, "User Create ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserRegistration.this, "User Created ", Toast.LENGTH_SHORT).show();
+
+                            createUserRecord(email);
+
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
                         }else {
@@ -90,6 +98,29 @@ public class UserRegistration extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
+
+
+    }
+
+    private void createUserRecord(String email ) {
+
+        Map<String,Object> docData = new HashMap();
+
+        docData.put("name", mFullName.getText().toString());
+        docData.put("email", email);
+        docData.put("image_name", "");
+        docData.put("phone", mPhone.getText().toString());
+        docData.put("address", "");
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
+
+        db.collection("users").document()
+                .set(docData);
 
 
     }

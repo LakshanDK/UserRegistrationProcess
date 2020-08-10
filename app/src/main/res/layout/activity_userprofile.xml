@@ -8,6 +8,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,21 +27,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/UpdateProfileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onUpdateButtonPress"
-        android:text="Update Profile"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="544dp" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/UpdateProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -78,11 +68,6 @@
                     android:text="CHANGE PHOTO" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SETTINGS" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,7 +86,6 @@
                     android:id="@+id/DisplayNameEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#BDBDBD"
                     android:ems="10"
                     android:hint="Name"
                     android:inputType="textPersonName" />
@@ -159,7 +143,15 @@
                     tools:layout_editor_absoluteX="112dp"
                     tools:layout_editor_absoluteY="659dp" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/UpdateProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onUpdateButtonPress"
+                android:text="Update Profile" />
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

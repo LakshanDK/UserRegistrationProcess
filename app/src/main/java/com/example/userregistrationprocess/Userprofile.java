@@ -168,6 +168,8 @@ public class Userprofile extends AppCompatActivity {
                                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
 
                                     imageView1.setImageBitmap(bitmap);
+                                imageView1.setScaleType(ImageView.ScaleType.FIT_XY);
+                                imageView1.setAdjustViewBounds(true);
 
                                     try {
                                         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
@@ -177,6 +179,7 @@ public class Userprofile extends AppCompatActivity {
 
                                         reference = storageReference.child("UserPics/" + timeString +".jpg");
                                         reference.putFile(selectedImage);
+                                        updateImgName(timeString + ".jpg");
 
                                         Toast.makeText( Userprofile.this, "Photo Updated", Toast.LENGTH_SHORT);
                                     }
