@@ -15,7 +15,7 @@
         android:background="@android:color/holo_red_dark"
         android:fontFamily="sans-serif"
         android:text="User Dashboard"
-        android:onClick="Userprofile"
+        android:onClick="onDashboardButtonPress"
         android:textColor="@android:color/widget_edittext_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    public void onDashboardButtonPress (View view) {
-//    }
+    public void onDashboardButtonPress (View view) {
+        startActivity(new Intent(MainActivity.this,Userprofile.class));
+        Toast.makeText( MainActivity.this, "test", Toast.LENGTH_SHORT);
+    }
 
 
 
@@ -40,8 +42,5 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void Userprofile(View view) {
-        startActivity(new Intent(MainActivity.this,Userprofile.class));
-        Toast.makeText( MainActivity.this, "test", Toast.LENGTH_SHORT);
-    }
+
 }
