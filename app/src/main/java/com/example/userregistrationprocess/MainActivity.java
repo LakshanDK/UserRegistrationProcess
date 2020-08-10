@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onDashboardButtonPress (View view) {
         startActivity(new Intent(MainActivity.this,Userprofile.class));
-        Toast.makeText( MainActivity.this, "test", Toast.LENGTH_SHORT);
     }
 
 
